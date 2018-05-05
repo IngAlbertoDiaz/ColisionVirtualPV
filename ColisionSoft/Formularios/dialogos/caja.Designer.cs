@@ -55,7 +55,7 @@
             this.btnNuevaCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnNuevaCaja.FlatAppearance.BorderSize = 0;
             this.btnNuevaCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaCaja.Font = new System.Drawing.Font("Orator Std", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevaCaja.ForeColor = System.Drawing.Color.White;
             this.btnNuevaCaja.Location = new System.Drawing.Point(226, 83);
             this.btnNuevaCaja.Name = "btnNuevaCaja";
@@ -70,9 +70,9 @@
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(137, 170);
+            this.btnCancelar.Location = new System.Drawing.Point(134, 162);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(168, 39);
             this.btnCancelar.TabIndex = 20;
@@ -85,7 +85,7 @@
             this.btnRecuperar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnRecuperar.FlatAppearance.BorderSize = 0;
             this.btnRecuperar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecuperar.Font = new System.Drawing.Font("Orator Std", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecuperar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecuperar.ForeColor = System.Drawing.Color.White;
             this.btnRecuperar.Location = new System.Drawing.Point(16, 83);
             this.btnRecuperar.Name = "btnRecuperar";
@@ -98,11 +98,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Orator Std", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(72, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 36);
+            this.label1.Size = new System.Drawing.Size(70, 31);
             this.label1.TabIndex = 13;
             this.label1.Text = "Caja";
             // 
