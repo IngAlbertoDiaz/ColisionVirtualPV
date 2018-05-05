@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E2B903E-8A89-4192-9383-0B544EBA9A2C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColisionSoft</RootNamespace>
+    <AssemblyName>ColisionSoft</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>logo0_50x50.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>Librerias\Pdf\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>Librerias\Pdf\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>Librerias\Pdf\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.10.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formularios\ajustes\acercade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ajustes\acercade.Designer.cs">
+      <DependentUpon>acercade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ajustes\ajustesGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ajustes\ajustesGenerales.Designer.cs">
+      <DependentUpon>ajustesGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ajustes\ajustesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ajustes\ajustesUsuario.Designer.cs">
+      <DependentUpon>ajustesUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ajustes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ajustes.Designer.cs">
+      <DependentUpon>ajustes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\dialogos\caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\dialogos\caja.Designer.cs">
+      <DependentUpon>caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\dialogos\cambiar_salir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\dialogos\cambiar_salir.Designer.cs">
+      <DependentUpon>cambiar_salir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\dialogos\cobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\dialogos\cobro.Designer.cs">
+      <DependentUpon>cobro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\dialogos\granel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\dialogos\granel.Designer.cs">
+      <DependentUpon>granel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\inicio.Designer.cs">
+      <DependentUpon>inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\inventario.Designer.cs">
+      <DependentUpon>inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Librerias\ConexionBD\DBCon.cs" />
+    <Compile Include="Librerias\GetterSetter\gsProductos.cs" />
+    <Compile Include="Librerias\GetterSetter\gsUsuarios.cs" />
+    <Compile Include="Librerias\Metodos\usuariosMet.cs" />
+    <Compile Include="Librerias\Metodos\prodMet.cs" />
+    <Compile Include="Formularios\dialogos\msgbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\dialogos\msgbox.Designer.cs">
+      <DependentUpon>msgbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Formularios\proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\proveedores.Designer.cs">
+      <DependentUpon>proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Librerias\GetterSetter\gsProveedores.cs" />
+    <Compile Include="Librerias\Metodos\provMet.cs" />
+    <Compile Include="Formularios\venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\venta.Designer.cs">
+      <DependentUpon>venta.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularios\ajustes.resx">
+      <DependentUpon>ajustes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ajustes\acercade.resx">
+      <DependentUpon>acercade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ajustes\ajustesGenerales.resx">
+      <DependentUpon>ajustesGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ajustes\ajustesUsuario.resx">
+      <DependentUpon>ajustesUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\dialogos\caja.resx">
+      <DependentUpon>caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\dialogos\cambiar_salir.resx">
+      <DependentUpon>cambiar_salir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\dialogos\cobro.resx">
+      <DependentUpon>cobro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\dialogos\granel.resx">
+      <DependentUpon>granel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\inicio.resx">
+      <DependentUpon>inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\inventario.resx">
+      <DependentUpon>inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\proveedores.resx">
+      <DependentUpon>proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\dialogos\msgbox.resx">
+      <DependentUpon>msgbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\venta.resx">
+      <DependentUpon>venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\usuario100x100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sonidos\error.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sonidos\exito.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\usuario32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\logo0_alphaV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Librerias\Pdf\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo0_50x50.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
