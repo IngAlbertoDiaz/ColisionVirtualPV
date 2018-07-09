@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace ColisionSoft
 {
@@ -16,82 +17,17 @@ namespace ColisionSoft
         public venta()
         {
             InitializeComponent();
-            AutoCompletarBusqueda();
         }
 
         DataTable dt = new DataTable();
         public static string total = "";
 
-        public void AutoCompletarBusqueda()
-        {
-            try
-            {
-                txtProducto.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                txtProducto.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                AutoCompleteStringCollection col = new AutoCompleteStringCollection();
-
-                prodMet ProdMetod = new prodMet();
-
-                var resultado = ProdMetod.Consultar();
-
-                if (resultado != null)
-                {
-                    while (resultado.Read())
-                    {
-                        //Añadir filas con los resultados
-                        string sNombre = resultado.GetString("nombre");
-                        float sPrecio = resultado.GetInt32("precio");
-                        col.Add(sNombre + "$" + sPrecio);
-                    }
-                }
-                else
-                {
-                }
-
-                txtProducto.AutoCompleteCustomSource = col;
-            }
-            catch (Exception)
-            {
-                msgbox.Error("NO SE CARGARON LOS PRODUCTOS");
-            }
-        }
-
         private void venta_Load(object sender, EventArgs e)
         {
         }
 
-        private void txtProducto_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    string valor = txtProducto.Text;
-                    string[] info = valor.Split('$');
-                    int nTicket = Convert.ToInt32(Properties.Settings.Default.ticket);
-                    dgvVenta.Rows.Add(nTicket, info[0], info[1]);
-                    Array.Clear(info, 0, info.Length);
-                    txtProducto.Text = "";
-
-                    double suma = 0;
-
-                    for (int i = 0; i < dgvVenta.Rows.Count; i++)
-                    {
-                        suma += Convert.ToDouble(dgvVenta.Rows[i].Cells[2].Value);
-                    }
-                    lblCantidad.Text = suma.ToString();
-                }
-            }
-            catch (Exception)
-            {
-                msgbox.Error("OCURRIO UN PROBLEMA");
-            }
-            
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            txtProducto.Text = "";
             lblCantidad.Text = "";
             dgvVenta.Rows.Clear();
         }
@@ -102,29 +38,25 @@ namespace ColisionSoft
             {
                 DialogResult dr = new DialogResult();
                 cobro fcob = new cobro();
-                DBCon cadena = new DBCon();
-                MySqlConnection con = new MySqlConnection();
-                MySqlCommand query = new MySqlCommand();
+                DBCon db = new DBCon();
                 total = lblCantidad.Text;
                 dr = cobro.Cobrar();
                 if (dr == DialogResult.OK)
                 {
-                    con.ConnectionString = cadena.CadenaConexion();
-                    con.Open();
-                    query.Connection = con;
+                    db._CONN.ConnectionString = db._DB;
+                    db._CONN.Open();
 
                     for (int i = 0; i < dgvVenta.Rows.Count; i++)
                     {
-                        query.CommandText = "INSERT INTO ventas (n_ticket,producto,precio) VALUES ("
-                            + dgvVenta.Rows[i].Cells["ticket"].Value    + ",'"
-                            + dgvVenta.Rows[i].Cells["producto"].Value  + "',"
-                            + dgvVenta.Rows[i].Cells["precio"].Value    + ");";
-                        query.ExecuteNonQuery();
+                        SqlDataAdapter query = new SqlDataAdapter("INSERT INTO ventas (n_ticket,producto,precio) VALUES ("
+                            + dgvVenta.Rows[i].Cells["ticket"].Value + ",'"
+                            + dgvVenta.Rows[i].Cells["producto"].Value + "',"
+                            + dgvVenta.Rows[i].Cells["precio"].Value + ");", db._CONN
+                            );
                     }
 
                     Properties.Settings.Default.ticket++;
                     Properties.Settings.Default.Save();
-                    txtProducto.Text = "";
                     lblCantidad.Text = "";
                     dgvVenta.Rows.Clear();
                     msgbox.Exito("Venta procesada con exito");
@@ -132,7 +64,6 @@ namespace ColisionSoft
                 else
                 {
                     msgbox.Error("Venta CANCELADA");
-                    txtProducto.Text = "";
                     lblCantidad.Text = "";
                     dgvVenta.Rows.Clear();
                 }
@@ -147,6 +78,47 @@ namespace ColisionSoft
         {
             granel Fgranel = new granel(this);
             Fgranel.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                flowLayoutPanel1.Controls.Clear();
+                SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|ColisionSoft.mdf';Integrated Security=True");
+
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM usuarios WHERE usuario LIKE '" + comboBox1.Text + "%'", cn);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Button btn = new Button();
+                    btn.Name = "btn" + dt.Rows[i][1];
+                    btn.Tag = dt.Rows[i][0];
+                    btn.Text = dt.Rows[i][1].ToString();
+                    btn.Font = new Font("ORATOR STD", 14f, FontStyle.Bold);
+                    btn.ForeColor = Color.White;
+                    // btn.UseCompatibleTextRendering = true;
+                    btn.BackColor = Color.FromArgb(0,120,0);
+                    btn.FlatAppearance.BorderSize = 0;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.Height = 52;
+                    btn.Width = 174;
+                    btn.Click += button1_Click;
+                    flowLayoutPanel1.Controls.Add(btn);
+                }
+            }
+            catch (Exception)
+            {
+                msgbox.Error("UPS! Algo salio mal, intenta de nuevo");
+            }
         }
     }
 }

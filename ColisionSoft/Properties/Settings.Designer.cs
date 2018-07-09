@@ -37,30 +37,6 @@ namespace ColisionSoft.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
-        public string usuario {
-            get {
-                return ((string)(this["usuario"]));
-            }
-            set {
-                this["usuario"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
-        public string pass {
-            get {
-                return ((string)(this["pass"]));
-            }
-            set {
-                this["pass"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int ticket {
             get {
@@ -92,6 +68,17 @@ namespace ColisionSoft.Properties {
             }
             set {
                 this["caja_final"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ColisionSoft." +
+            "mdf;Integrated Security=True")]
+        public string ColisionSoftConStr {
+            get {
+                return ((string)(this["ColisionSoftConStr"]));
             }
         }
     }

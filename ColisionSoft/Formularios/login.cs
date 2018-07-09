@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ColisionSoft
 {
@@ -19,29 +20,40 @@ namespace ColisionSoft
 
         private void btnSesion_Click(object sender, EventArgs e)
         {
-            usuariosMet userAuth = new usuariosMet();
-
-            var resultado = userAuth.AuthUser(txtUsuario.Text,txtPass.Text);
-
-            if (resultado.HasRows)
+            try
             {
-                while (resultado.Read())
+                usuariosMet userAuth = new usuariosMet();
+
+                DataTable resultado = userAuth.login(txtUsuario.Text, txtPass.Text);
+
+                if (resultado != null)
                 {
-                    inicio inicio = new inicio();
-                    inicio.privilegio = Convert.ToInt32(resultado[3]);
-                    inicio.Show();
-                    this.Hide();
+                    if (resultado.Rows.Count > 0)
+                    {
+                        inicio inicio = new inicio();
+                        inicio.privilegio = Convert.ToInt32(resultado.Rows[0][3]);
+                        inicio.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    msgbox.Error("Datos incorrectos");
                 }
             }
-            else
+            catch (Exception)
             {
-                msgbox.Error("Algo no esta bien revisa tus datos");
+                msgbox.Error("Revisa tus datos");
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -1,137 +1,120 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ColisionSoft
 {
     class usuariosMet
     {
-        //AGREGAR----------------------------------------------
+        //CREATE
+
         public static int Agregar(gsUsuarios _gsu)
         {
-            int exito = 0;
-            int error = 0;
-            try
-            {
-                DBCon con = new DBCon();
+            DBCon DB = new DBCon();
+            DB._CONN.ConnectionString = DB._DB;
+            DB._CONN.Open();
+            string query = "INSERT INTO usuarios (usuario, pass, privilegios)  VALUES ('" + _gsu.usuario + "','" + _gsu.pass + "', '" + _gsu.privilegios + "')";
+            DB._CMD.CommandText = query;
+            DB._CMD.Connection = DB._CONN;
+            int res = DB._CMD.ExecuteNonQuery();
+            DB._CONN.Close();
 
-                exito = con.Conectar("INSERT INTO usuarios(usuario ,pass ,privilegios) values('" + _gsu.usuario + "','" + _gsu.pass + "'," + _gsu.privilegios + ")");
-
-                return exito;
-            }
-            catch (Exception)
-            {
-                return error;
-            }
-
+            return res;
         }
 
-        //CONSULTAR----------------------------------------------
-        public MySqlDataReader AuthUser(string _usuario, string _pass)
+        //READ
+
+        public DataTable login(string _usuario, string _pass)
         {
+            DataTable resultado = new DataTable();
+            DBCon DB = new DBCon();
             try
             {
-                MySqlDataReader query;
-                DBCon con = new DBCon();
+                DB._CONN.ConnectionString = DB._DB;
+                DB._CONN.Open();
 
-                if (_pass == null)
-                {
-                    query = con.Consultar("SELECT * FROM usuarios WHERE usuario = '" + _usuario + "'");
-                }
-                else
-                {
-                    query = con.Consultar("SELECT * FROM usuarios WHERE usuario = '" + _usuario + "' AND pass = '" + _pass + "'");
-                }
-
-                return query;
+                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios WHERE usuario = '" + _usuario + "' AND pass = '" + _pass + "' ", DB._CONN);
+                sql.Fill(resultado);
+                DB._CONN.Close();
+                return resultado;
             }
             catch (Exception)
             {
-                MySqlDataReader noRes = null;
-                return noRes;
+                return resultado;
             }
         }
 
-        public MySqlDataReader ConsultarUsuarios()
+        public DataTable ConsultarUsuarios()
         {
+            DataTable resultado = new DataTable();
+            DBCon DB = new DBCon();
             try
             {
-                MySqlDataReader query;
-                DBCon con = new DBCon();
+                DB._CONN.ConnectionString = DB._DB;
+                DB._CONN.Open();
 
-                query = con.Consultar("SELECT * FROM usuarios");
-
-                return query;
+                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios", DB._CONN);
+                sql.Fill(resultado);
+                DB._CONN.Close();
+                return resultado;
             }
             catch (Exception)
             {
-                MySqlDataReader noRes = null;
-                return noRes;
+                return resultado;
             }
         }
 
-        public MySqlDataReader ConsultarAdmins()
+        public DataTable ConsultarAdmins()
         {
+            DataTable resultado = new DataTable();
+            DBCon DB = new DBCon();
             try
             {
-                MySqlDataReader query;
-                DBCon con = new DBCon();
-                //Cuenta el numero de usuarios con privilegios de administrador
-                query = con.Consultar("SELECT * FROM usuarios WHERE privilegios = 1");
+                DB._CONN.ConnectionString = DB._DB;
+                DB._CONN.Open();
 
-                return query;
+                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios", DB._CONN);
+                sql.Fill(resultado);
+                DB._CONN.Close();
+                return resultado;
             }
             catch (Exception)
             {
-                MySqlDataReader noRes = null;
-                return noRes;
+                return resultado;
             }
         }
 
+        //UPDATE
 
-        //ACTUALIZAR---------------------------------------------
         public static int Actualizar(gsUsuarios _gsu)
         {
-            int exito = 0;
-            int error = 0;
-            try
-            {
-                DBCon con = new DBCon();
-                
-                exito = con.Conectar("UPDATE usuarios SET "
-                    + "usuario          = '" + _gsu.usuario
-                    + "',pass          = '" + _gsu.pass
-                    + "',privilegios = '" + _gsu.privilegios
-                    + "' WHERE id = " + _gsu.id + "");
+            DBCon DB = new DBCon();
+            DB._CONN.ConnectionString = DB._DB;
+            DB._CONN.Open();
+            string query = "UPDATE usuarios (usuario, pass, privilegios)  VALUES ('" + _gsu.usuario + "','" + _gsu.pass + "', '" + _gsu.privilegios + "')";
+            DB._CMD.CommandText = query;
+            DB._CMD.Connection = DB._CONN;
+            int res = DB._CMD.ExecuteNonQuery();
+            DB._CONN.Close();
 
-                return exito;
-            }
-            catch (Exception)
-            {
-                return error;
-            }
-
+            return res;
         }
-        //ELIMINAR----------------------------------------------
+
+        //DELETE
+
         public static int Eliminar(gsUsuarios _gsu)
         {
-            int exito = 0;
-            int error = 0;
-            try
-            {
-                DBCon con = new DBCon();
+            DBCon DB = new DBCon();
+            DB._CONN.ConnectionString = DB._DB;
+            DB._CONN.Open();
+            string query = "DELETE FROM usuarios WHERE id = '" + _gsu.id + "'";
+            DB._CMD.CommandText = query;
+            DB._CMD.Connection = DB._CONN;
+            int res = DB._CMD.ExecuteNonQuery();
+            DB._CONN.Close();
 
-                exito = con.Conectar("DELETE FROM usuarios WHERE id = '" + _gsu.id + "'");
-
-                return exito;
-            }
-            catch (Exception)
-            {
-                return error;
-            }
+            return res;
         }
 
     }

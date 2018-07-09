@@ -60,10 +60,9 @@ namespace ColisionSoft
 
         private void msgbox_Load(object sender, EventArgs e)
         {
-            timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             result = DialogResult.Yes;
             Per_MsgBox.Close();
