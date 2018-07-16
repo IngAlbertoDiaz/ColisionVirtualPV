@@ -73,8 +73,7 @@ namespace ColisionSoft
             {
                 DB._CONN.ConnectionString = DB._DB;
                 DB._CONN.Open();
-
-                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios", DB._CONN);
+                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios WHERE privilegios = 1", DB._CONN);
                 sql.Fill(resultado);
                 DB._CONN.Close();
                 return resultado;
@@ -87,19 +86,8 @@ namespace ColisionSoft
 
         //UPDATE
 
-        public static int Actualizar(gsUsuarios _gsu)
-        {
-            DBCon DB = new DBCon();
-            DB._CONN.ConnectionString = DB._DB;
-            DB._CONN.Open();
-            string query = "UPDATE usuarios (usuario, pass, privilegios)  VALUES ('" + _gsu.usuario + "','" + _gsu.pass + "', '" + _gsu.privilegios + "')";
-            DB._CMD.CommandText = query;
-            DB._CMD.Connection = DB._CONN;
-            int res = DB._CMD.ExecuteNonQuery();
-            DB._CONN.Close();
-
-            return res;
-        }
+        //Para cambiar datos de un usuario se elimina y se vuelve a ingresar
+        //Ya que son 3 datos solamente
 
         //DELETE
 

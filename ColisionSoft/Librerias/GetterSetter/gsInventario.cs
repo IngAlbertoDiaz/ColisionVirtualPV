@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace ColisionSoft
 {
-    class gsProductos
+    class gsInventario
     {
         public int id { get; set; }
         public string nombre { get; set; }
         public float peso { get; set; }
         public string unidad_medida { get; set; }
-        public int bodega { get; set; }
-        public int exhibicion { get; set; }
+        public float bodega { get; set; }
+        public float exhibicion { get; set; }
         public float precio { get; set; }
         public int proveedor { get; set; }
 
-        public gsProductos() { }
+        public gsInventario() { }
 
-        public gsProductos(int pId, string pNombre, float pPeso, string pUnidad_medida, int pBodega, int pExhibicion, float pPrecio, int pProveedor)
+        public gsInventario(int pId, string pNombre, float pPeso, string pUnidad_medida, int pBodega, int pExhibicion, float pPrecio, int pProveedor)
         {
             this.id = pId;
             this.nombre = pNombre;

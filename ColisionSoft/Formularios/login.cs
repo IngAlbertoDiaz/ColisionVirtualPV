@@ -35,15 +35,15 @@ namespace ColisionSoft
                         inicio.Show();
                         this.Hide();
                     }
-                }
-                else
-                {
-                    msgbox.Error("Datos incorrectos");
+                    else
+                    {
+                        msgbox.Error("Datos incorrectos");
+                    }
                 }
             }
             catch (Exception)
             {
-                msgbox.Error("Revisa tus datos");
+                msgbox.Error("Error al leer los datos");
             }
         }
 

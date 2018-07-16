@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ColisionSoft
@@ -22,7 +16,6 @@ namespace ColisionSoft
         public void CargarDGV()
         {
             //dgvUsuarios.Rows.Clear();
-
             usuariosMet _Usuarios = new usuariosMet();
 
             DataTable resultado = _Usuarios.ConsultarUsuarios();
@@ -36,9 +29,24 @@ namespace ColisionSoft
             }
         }
 
+        public void Eliminar()
+        {
+            DataGridViewRow row = dgvUsuarios.CurrentRow;
+            gsUsuarios _gsu = new gsUsuarios();
+            _gsu.id = Convert.ToInt32(row.Cells[1].Value);
+            int resEliminar = usuariosMet.Eliminar(_gsu);
+
+            if (resEliminar > 0)
+            {
+                msgbox.Exito("Usuario eliminado");
+                CargarDGV();
+            }
+        }
+
         private void ajustesUsuario_Load(object sender, EventArgs e)
         {
             CargarDGV();
+            dgvUsuarios.ClearSelection();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -96,21 +104,25 @@ namespace ColisionSoft
 
                     gsUsuarios _gsu = new gsUsuarios();
                     usuariosMet usuarios = new usuariosMet();
+                    _gsu.id = Convert.ToInt32(delRow.Cells[1].Value);
+                    DataTable resAdmins = usuarios.ConsultarAdmins();
 
-                    DataTable resultado = usuarios.ConsultarAdmins();
-
-                    if (resultado != null)
+                    if (delRow.Cells[4].Value.ToString() == "1")
                     {
-                        if (resultado.Rows.Count > 0)
+                        if (resAdmins.Rows.Count == 1)
                         {
-                            
+                            msgbox.Error("Debe haber al menos un administrador");
+                        }
+                        else
+                        {
+                            Eliminar();
                         }
                     }
                     else
                     {
-                        msgbox.Error("Datos incorrectos");
+                        Eliminar();
                     }
-
+                    
                 }
                 catch (Exception)
                 {
@@ -127,8 +139,10 @@ namespace ColisionSoft
 
                 seleccionado = true;
 
-                txtUsuario.Text = Convert.ToString(row.Cells[1].Value);
-                int priv = Convert.ToInt32(row.Cells[2].Value);
+                txtPass.Text = "";
+                txtConfPass.Text = "";
+                txtUsuario.Text = Convert.ToString(row.Cells[2].Value);
+                int priv = Convert.ToInt32(row.Cells[4].Value);
                 if (priv == 1)
                 {
                     cbPrivilegios.Text = "ADMIN";

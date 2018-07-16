@@ -100,28 +100,34 @@
     <Compile Include="Formularios\ajustes.Designer.cs">
       <DependentUpon>ajustes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\dialogos\caja.cs">
+    <Compile Include="Formularios\modal\ActualizarInventario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\dialogos\caja.Designer.cs">
+    <Compile Include="Formularios\modal\ActualizarInventario.Designer.cs">
+      <DependentUpon>ActualizarInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\modal\caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\modal\caja.Designer.cs">
       <DependentUpon>caja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\dialogos\cambiar_salir.cs">
+    <Compile Include="Formularios\modal\cambiar_salir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\dialogos\cambiar_salir.Designer.cs">
+    <Compile Include="Formularios\modal\cambiar_salir.Designer.cs">
       <DependentUpon>cambiar_salir.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\dialogos\cobro.cs">
+    <Compile Include="Formularios\modal\cobro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\dialogos\cobro.Designer.cs">
+    <Compile Include="Formularios\modal\cobro.Designer.cs">
       <DependentUpon>cobro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\dialogos\granel.cs">
+    <Compile Include="Formularios\modal\granel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\dialogos\granel.Designer.cs">
+    <Compile Include="Formularios\modal\granel.Designer.cs">
       <DependentUpon>granel.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\inicio.cs">
@@ -143,14 +149,14 @@
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
     <Compile Include="Librerias\ConexionBD\DBCon.cs" />
-    <Compile Include="Librerias\GetterSetter\gsProductos.cs" />
+    <Compile Include="Librerias\GetterSetter\gsInventario.cs" />
     <Compile Include="Librerias\GetterSetter\gsUsuarios.cs" />
     <Compile Include="Librerias\Metodos\usuariosMet.cs" />
-    <Compile Include="Librerias\Metodos\prodMet.cs" />
-    <Compile Include="Formularios\dialogos\msgbox.cs">
+    <Compile Include="Librerias\Metodos\invMet.cs" />
+    <Compile Include="Formularios\modal\msgbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\dialogos\msgbox.Designer.cs">
+    <Compile Include="Formularios\modal\msgbox.Designer.cs">
       <DependentUpon>msgbox.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -181,16 +187,19 @@
     <EmbeddedResource Include="Formularios\ajustes\ajustesUsuario.resx">
       <DependentUpon>ajustesUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\dialogos\caja.resx">
+    <EmbeddedResource Include="Formularios\modal\ActualizarInventario.resx">
+      <DependentUpon>ActualizarInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\modal\caja.resx">
       <DependentUpon>caja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\dialogos\cambiar_salir.resx">
+    <EmbeddedResource Include="Formularios\modal\cambiar_salir.resx">
       <DependentUpon>cambiar_salir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\dialogos\cobro.resx">
+    <EmbeddedResource Include="Formularios\modal\cobro.resx">
       <DependentUpon>cobro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\dialogos\granel.resx">
+    <EmbeddedResource Include="Formularios\modal\granel.resx">
       <DependentUpon>granel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\inicio.resx">
@@ -205,7 +214,7 @@
     <EmbeddedResource Include="Formularios\proveedores.resx">
       <DependentUpon>proveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\dialogos\msgbox.resx">
+    <EmbeddedResource Include="Formularios\modal\msgbox.resx">
       <DependentUpon>msgbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
