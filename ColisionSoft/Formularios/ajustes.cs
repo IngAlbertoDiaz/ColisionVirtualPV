@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ColisionSoft
@@ -37,49 +30,60 @@ namespace ColisionSoft
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            ajustesUsuario FAU = new ajustesUsuario();
-            Form FAUOpen = Application.OpenForms["ajustesUsuario"];
+            ajustesUsuario _FormAjustesUsuario = new ajustesUsuario();
             
-            if (FAUOpen == null)
+            Form _FormOpen = Application.OpenForms["ajustesUsuario"];
+            
+            if (_FormOpen == null)
             {
+                if (_FormAjustesUsuario.ShowDialog(this) == DialogResult.OK)
+                {
+
+                }
                 CerrarFormulariosExtra();
-                FAU.Show();
             }
             else
             {
-                FAUOpen.BringToFront();
+                _FormOpen.BringToFront();
             }
+            
         }
 
         private void btnAjustes_Click(object sender, EventArgs e)
         {
-            ajustesGenerales FAG = new ajustesGenerales();
-            Form FAGOpen = Application.OpenForms["ajustesGenerales"];
+            ajustesGenerales _FormAjustesGenerales = new ajustesGenerales();
+            Form _FormOpen = Application.OpenForms["ajustesGenerales"];
 
-            if (FAGOpen == null)
+            if (_FormOpen == null)
             {
+                if (_FormAjustesGenerales.ShowDialog(this) == DialogResult.OK)
+                {
+
+                }
                 CerrarFormulariosExtra();
-                FAG.Show();
             }
             else
             {
-                FAGOpen.BringToFront();
+                _FormOpen.BringToFront();
             }
         }
 
         private void btnAcerca_Click(object sender, EventArgs e)
         {
-            acercade FA = new acercade();
-            Form FAOpen = Application.OpenForms["acercade"];
+            acercade _FormAcercaDe = new acercade();
+            Form _FormOpen = Application.OpenForms["acercade"];
 
-            if (FAOpen == null)
+            if (_FormOpen == null)
             {
+                if (_FormAcercaDe.ShowDialog(this) == DialogResult.OK)
+                {
+
+                }
                 CerrarFormulariosExtra();
-                FA.Show();
             }
             else
             {
-                FAOpen.BringToFront();
+                _FormOpen.BringToFront();
             }
         }
     }

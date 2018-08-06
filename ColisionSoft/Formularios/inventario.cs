@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace ColisionSoft
 {
@@ -98,40 +91,45 @@ namespace ColisionSoft
             }
         }
 
-        private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        public string _id;
-        public string _nombre;
-        public string _peso;
-        public string _unidad_medida;
-        public string _bodega;
-        public string _exhibicion;
-        public string _precio;
-        public string _proveedor;
-
         private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
-            {
-                msgbox.Exito("ELIMINAR");
-            }
-            else if (e.ColumnIndex == 1 && e.RowIndex >= 0)
+            try
             {
                 DataGridViewRow _fila = dgvInventario.CurrentRow;
-                ActualizarInventario _ActInv = new ActualizarInventario(
-                        _fila.Cells[2].Value.ToString(), 
-                        _fila.Cells[3].Value.ToString(),
-                        _fila.Cells[4].Value.ToString(),
-                        _fila.Cells[5].Value.ToString(),
-                        _fila.Cells[6].Value.ToString(),
-                        _fila.Cells[7].Value.ToString(),
-                        _fila.Cells[8].Value.ToString(),
-                        _fila.Cells[9].Value.ToString()
-                    );
-                _ActInv.Show();
+                gsInventario _gsi = new gsInventario();
+
+                if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+                {
+                    msgbox.Exito("ELIMINAR");
+                    _gsi.id = Convert.ToInt32(_fila.Cells[2].Value);
+
+                    int resultado = invMet.Eliminar(_gsi);
+
+                    if (resultado > 0)
+                    {
+                        msgbox.Exito("Producto eliminado");
+                    }
+                }
+                else if (e.ColumnIndex == 1 && e.RowIndex >= 0)
+                {
+                    ActualizarInventario _ActInv = new ActualizarInventario(
+                            _fila.Cells[2].Value.ToString(),
+                            _fila.Cells[3].Value.ToString(),
+                            _fila.Cells[4].Value.ToString(),
+                            _fila.Cells[5].Value.ToString(),
+                            _fila.Cells[6].Value.ToString(),
+                            _fila.Cells[7].Value.ToString(),
+                            _fila.Cells[8].Value.ToString(),
+                            _fila.Cells[9].Value.ToString()
+                        );
+                    _ActInv.Show();
+                }
             }
+            catch (Exception)
+            {
+                msgbox.Error("Algo salio mal");
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

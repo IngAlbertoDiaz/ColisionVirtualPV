@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System.ServiceProcess;
-
 
 namespace ColisionSoft
 {
@@ -74,16 +65,27 @@ namespace ColisionSoft
 
         public void FormVenta()
         {
+            btnVenta.Enabled = false;
+            Pindicador.Height = btnVenta.Height;
+            Pindicador.Top = btnVenta.Top;
             PVentanas.Controls.Clear();
+            CerrarFormulariosExtra();
             //Inicializa el formulario de ventas y lo agrega a un panel
             venta ven = new venta();
             ven.TopLevel = false;
             PVentanas.Controls.Add(ven);
             ven.Show();
+            if (btnVenta.Enabled == false)
+            {
+                btnInventario.Enabled = true;
+                btnProveedores.Enabled = true;
+                btnAjustes.Enabled = true;
+            }
         }
 
         public void FormInventario()
         {
+            btnInventario.Enabled = false;
             //Mueve la barra lateral izquierda hacia el boton de inventario
             Pindicador.Height = btnInventario.Height;
             Pindicador.Top = btnInventario.Top;
@@ -96,10 +98,17 @@ namespace ColisionSoft
             inv.TopLevel = false;
             PVentanas.Controls.Add(inv);
             inv.Show();
+            if (btnInventario.Enabled == false)
+            {
+                btnVenta.Enabled = true;
+                btnProveedores.Enabled = true;
+                btnAjustes.Enabled = true;
+            }
         }
 
         public void FormProveedores()
         {
+            btnProveedores.Enabled = false;
             Pindicador.Height = btnProveedores.Height;
             Pindicador.Top = btnProveedores.Top;
             PVentanas.Controls.Clear();
@@ -108,10 +117,17 @@ namespace ColisionSoft
             prov.TopLevel = false;
             PVentanas.Controls.Add(prov);
             prov.Show();
+            if (btnProveedores.Enabled == false)
+            {
+                btnVenta.Enabled = true;
+                btnInventario.Enabled = true;
+                btnAjustes.Enabled = true;
+            }
         }
 
         public void FormAjustes()
         {
+            btnAjustes.Enabled = false;
             Pindicador.Height = btnAjustes.Height;
             Pindicador.Top = btnAjustes.Top;
             PVentanas.Controls.Clear();
@@ -120,6 +136,12 @@ namespace ColisionSoft
             FormAju.TopLevel = false;
             PVentanas.Controls.Add(FormAju);
             FormAju.Show();
+            if (btnAjustes.Enabled == false)
+            {
+                btnVenta.Enabled = true;
+                btnInventario.Enabled = true;
+                btnProveedores.Enabled = true;
+            }
         }
 
         private void inicio_Load(object sender, EventArgs e)
@@ -138,10 +160,6 @@ namespace ColisionSoft
                 {
                     FormInventario();
                 }
-                else
-                {
-                    
-                }
             }
             catch (Exception)
             {
@@ -157,9 +175,6 @@ namespace ColisionSoft
                 if (privilegio == 1)
                 {
                     FormProveedores();
-                }
-                else
-                {
                 }
             }
             catch (Exception)
@@ -179,7 +194,10 @@ namespace ColisionSoft
         {
             try
             {
-                FormVenta();
+                if (privilegio == 1)
+                {
+                    FormVenta();
+                }
             }
             catch (Exception)
             {
@@ -196,9 +214,6 @@ namespace ColisionSoft
                 {
                     FormAjustes();
                 }
-                else
-                {
-                }
             }
             catch (Exception)
             {
@@ -208,7 +223,14 @@ namespace ColisionSoft
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label2.Text = DateTime.Now.ToString();
+            try
+            {
+                label2.Text = DateTime.Now.ToString();
+            }
+            catch (Exception)
+            {
+                label2.Text = ":( no sabemos que dia es";
+            }
         }
     }
 }

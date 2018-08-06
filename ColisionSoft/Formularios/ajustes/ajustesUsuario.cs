@@ -130,42 +130,5 @@ namespace ColisionSoft
                 }
             }
         }
-
-        private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridViewRow row = dgvUsuarios.CurrentRow;
-
-                seleccionado = true;
-
-                txtPass.Text = "";
-                txtConfPass.Text = "";
-                txtUsuario.Text = Convert.ToString(row.Cells[2].Value);
-                int priv = Convert.ToInt32(row.Cells[4].Value);
-                if (priv == 1)
-                {
-                    cbPrivilegios.Text = "ADMIN";
-                }
-                else
-                {
-                    cbPrivilegios.Text = "USUARIO";
-                }
-            }
-            catch (Exception)
-            {
-                msgbox.Error("No pudo obtenerse la informacion");
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            seleccionado = false;
-            txtUsuario.Text = "";
-            txtPass.Text = "";
-            txtConfPass.Text = "";
-            cbPrivilegios.Text = "";
-            dgvUsuarios.ClearSelection();
-        }
     }
 }

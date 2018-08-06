@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -82,6 +77,19 @@ namespace ColisionSoft
         }
 
         //DELETE
+        public static int Eliminar(gsInventario _gsi)
+        {
+            DBCon DB = new DBCon();
+            DB._CONN.ConnectionString = DB._DB;
+            DB._CONN.Open();
+            string query = "DELETE FROM inventario WHERE id = '" + _gsi.id + "'";
+            DB._CMD.CommandText = query;
+            DB._CMD.Connection = DB._CONN;
+            int res = DB._CMD.ExecuteNonQuery();
+            DB._CONN.Close();
+
+            return res;
+        }
 
     }
 }
