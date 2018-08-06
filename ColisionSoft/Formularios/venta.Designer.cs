@@ -37,8 +37,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.btnGranel = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +82,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Orator Std", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(654, 120);
+            this.label2.Location = new System.Drawing.Point(627, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 37);
+            this.label2.Size = new System.Drawing.Size(171, 43);
             this.label2.TabIndex = 6;
             this.label2.Text = "Total: $";
             // 
@@ -145,13 +145,6 @@
             this.btnGranel.UseVisualStyleBackColor = false;
             this.btnGranel.Click += new System.EventHandler(this.btnGranel_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(144, 22);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(767, 80);
-            this.flowLayoutPanel1.TabIndex = 104;
-            // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("Orator Std", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,6 +183,13 @@
             this.comboBox1.TabIndex = 105;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(144, 22);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(767, 80);
+            this.flowLayoutPanel1.TabIndex = 104;
+            // 
             // venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,7 +224,7 @@
         public System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Button btnGranel;
         public System.Windows.Forms.DataGridView dgvVenta;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

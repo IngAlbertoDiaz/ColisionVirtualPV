@@ -43,20 +43,20 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(381, 115);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(382, 147);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(225, 35);
+            this.txtUsuario.Size = new System.Drawing.Size(225, 38);
             this.txtUsuario.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Orator Std", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(440, 71);
+            this.label1.Location = new System.Drawing.Point(418, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 32);
+            this.label1.Size = new System.Drawing.Size(152, 43);
             this.label1.TabIndex = 1;
             this.label1.Text = "Usuario";
             // 
@@ -67,40 +67,40 @@
             this.btnSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSesion.Font = new System.Drawing.Font("Orator Std", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSesion.ForeColor = System.Drawing.Color.White;
-            this.btnSesion.Location = new System.Drawing.Point(381, 275);
+            this.btnSesion.Location = new System.Drawing.Point(382, 335);
             this.btnSesion.Name = "btnSesion";
-            this.btnSesion.Size = new System.Drawing.Size(225, 84);
+            this.btnSesion.Size = new System.Drawing.Size(225, 66);
             this.btnSesion.TabIndex = 2;
-            this.btnSesion.Text = "Iniciar sesión";
+            this.btnSesion.Text = "Iniciar";
             this.btnSesion.UseVisualStyleBackColor = false;
             this.btnSesion.Click += new System.EventHandler(this.btnSesion_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Orator Std", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(419, 168);
+            this.label2.Location = new System.Drawing.Point(390, 215);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 32);
+            this.label2.Size = new System.Drawing.Size(209, 43);
             this.label2.TabIndex = 4;
             this.label2.Text = "Contraseña";
             // 
             // txtPass
             // 
-            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(381, 213);
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Location = new System.Drawing.Point(382, 261);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(225, 35);
+            this.txtPass.Size = new System.Drawing.Size(225, 38);
             this.txtPass.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ColisionSoft.Properties.Resources.logo0_alphaV2;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 32);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 300);
+            this.pictureBox1.Size = new System.Drawing.Size(350, 350);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -110,7 +110,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Orator Std", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(26, 335);
+            this.label3.Location = new System.Drawing.Point(12, 365);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(268, 64);
             this.label3.TabIndex = 6;
@@ -119,9 +119,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Orator Std", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(69, 399);
+            this.label4.Location = new System.Drawing.Point(113, 418);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(268, 64);
             this.label4.TabIndex = 7;
@@ -132,13 +133,13 @@
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Orator Std", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Orator Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(410, 365);
+            this.btnCancelar.Location = new System.Drawing.Point(573, 0);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(164, 62);
+            this.btnCancelar.Size = new System.Drawing.Size(71, 53);
             this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "X";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 

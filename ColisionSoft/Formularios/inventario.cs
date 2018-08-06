@@ -42,7 +42,7 @@ namespace ColisionSoft
 
         public void CargarDGV()
         {
-            dgvInventario.Rows.Clear();
+            //dgvInventario.Rows.Clear();
 
             invMet _inv = new invMet();
 
@@ -82,6 +82,7 @@ namespace ColisionSoft
                 if (resGuardar > 0)
                 {
                     msgbox.Exito("Producto agregado");
+                    CargarDGV();
                 }
 
             }
@@ -100,7 +101,6 @@ namespace ColisionSoft
 
                 if (e.ColumnIndex == 0 && e.RowIndex >= 0)
                 {
-                    msgbox.Exito("ELIMINAR");
                     _gsi.id = Convert.ToInt32(_fila.Cells[2].Value);
 
                     int resultado = invMet.Eliminar(_gsi);
@@ -108,6 +108,7 @@ namespace ColisionSoft
                     if (resultado > 0)
                     {
                         msgbox.Exito("Producto eliminado");
+                        CargarDGV();
                     }
                 }
                 else if (e.ColumnIndex == 1 && e.RowIndex >= 0)
@@ -122,7 +123,7 @@ namespace ColisionSoft
                             _fila.Cells[8].Value.ToString(),
                             _fila.Cells[9].Value.ToString()
                         );
-                    _ActInv.Show();
+                    _ActInv.ShowDialog();
                 }
             }
             catch (Exception)

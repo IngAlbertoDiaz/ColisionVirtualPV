@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.txtCaja);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(431, 218);
+            this.panel1.Size = new System.Drawing.Size(431, 193);
             this.panel1.TabIndex = 1;
             // 
             // btnNuevaCaja
@@ -55,13 +55,13 @@
             this.btnNuevaCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnNuevaCaja.FlatAppearance.BorderSize = 0;
             this.btnNuevaCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaCaja.Font = new System.Drawing.Font("Orator Std", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevaCaja.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaCaja.Location = new System.Drawing.Point(226, 83);
+            this.btnNuevaCaja.Location = new System.Drawing.Point(236, 67);
             this.btnNuevaCaja.Name = "btnNuevaCaja";
-            this.btnNuevaCaja.Size = new System.Drawing.Size(182, 52);
+            this.btnNuevaCaja.Size = new System.Drawing.Size(182, 61);
             this.btnNuevaCaja.TabIndex = 21;
-            this.btnNuevaCaja.Text = "Nueva caja";
+            this.btnNuevaCaja.Text = "NUEVA CAJA";
             this.btnNuevaCaja.UseVisualStyleBackColor = false;
             this.btnNuevaCaja.Click += new System.EventHandler(this.btnNuevaCaja_Click);
             // 
@@ -70,9 +70,9 @@
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(134, 162);
+            this.btnCancelar.Location = new System.Drawing.Point(134, 142);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(168, 39);
             this.btnCancelar.TabIndex = 20;
@@ -85,33 +85,33 @@
             this.btnRecuperar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
             this.btnRecuperar.FlatAppearance.BorderSize = 0;
             this.btnRecuperar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecuperar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecuperar.Font = new System.Drawing.Font("Orator Std", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecuperar.ForeColor = System.Drawing.Color.White;
-            this.btnRecuperar.Location = new System.Drawing.Point(16, 83);
+            this.btnRecuperar.Location = new System.Drawing.Point(15, 67);
             this.btnRecuperar.Name = "btnRecuperar";
-            this.btnRecuperar.Size = new System.Drawing.Size(182, 52);
+            this.btnRecuperar.Size = new System.Drawing.Size(203, 61);
             this.btnRecuperar.TabIndex = 19;
-            this.btnRecuperar.Text = "Recuperar Caja";
+            this.btnRecuperar.Text = "RECUPERAR CAJA";
             this.btnRecuperar.UseVisualStyleBackColor = false;
             this.btnRecuperar.Click += new System.EventHandler(this.btnRecuperar_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Orator Std", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(72, 16);
+            this.label1.Location = new System.Drawing.Point(65, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 31);
+            this.label1.Size = new System.Drawing.Size(79, 36);
             this.label1.TabIndex = 13;
             this.label1.Text = "Caja";
             // 
             // txtCaja
             // 
-            this.txtCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCaja.Location = new System.Drawing.Point(157, 15);
+            this.txtCaja.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCaja.Location = new System.Drawing.Point(159, 11);
             this.txtCaja.Name = "txtCaja";
-            this.txtCaja.Size = new System.Drawing.Size(176, 38);
+            this.txtCaja.Size = new System.Drawing.Size(197, 40);
             this.txtCaja.TabIndex = 12;
             // 
             // caja
@@ -119,7 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(455, 242);
+            this.ClientSize = new System.Drawing.Size(455, 217);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "caja";

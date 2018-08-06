@@ -18,7 +18,7 @@ namespace ColisionSoft
         public void FormError()
         {
             pictureBox1.Image = (Image)(Properties.Resources.error);
-            this.BackColor = Color.FromArgb(120, 0, 0);
+            panel1.BackColor = Color.FromArgb(120, 0, 0);
             SoundPlayer sError = new SoundPlayer(Properties.Resources.sonidoError);
             sError.Play();
             
@@ -26,7 +26,7 @@ namespace ColisionSoft
         public void FormExito()
         {
             pictureBox1.Image = (Image)(Properties.Resources.success);
-            this.BackColor = Color.FromArgb(51, 54, 70);
+            panel1.BackColor = Color.FromArgb(51, 54, 70);
             SoundPlayer sExito = new SoundPlayer(Properties.Resources.sonidoExito);
             sExito.Play();
         }
@@ -35,7 +35,7 @@ namespace ColisionSoft
         {
             Per_MsgBox = new msgbox();
             Per_MsgBox.lblMensaje.Text = mensaje;
-            Per_MsgBox.lblMensaje.BackColor = Color.FromArgb(0, 120, 0);
+            Per_MsgBox.lblMensaje.BackColor = Color.FromArgb(51, 54, 70);
             Per_MsgBox.FormExito();
             result = DialogResult.No;
             Per_MsgBox.ShowDialog();

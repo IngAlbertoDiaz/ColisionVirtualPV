@@ -43,6 +43,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.PVentanas = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PHerramientas.SuspendLayout();
             this.PFormulario.SuspendLayout();
             this.SuspendLayout();
@@ -162,7 +163,8 @@
             // 
             // PFormulario
             // 
-            this.PFormulario.BackColor = System.Drawing.Color.White;
+            this.PFormulario.BackColor = System.Drawing.Color.Transparent;
+            this.PFormulario.Controls.Add(this.panel1);
             this.PFormulario.Controls.Add(this.label2);
             this.PFormulario.Controls.Add(this.lblNombre);
             this.PFormulario.Dock = System.Windows.Forms.DockStyle.Top;
@@ -178,7 +180,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Orator Std", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(909, 49);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(935, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 25);
             this.label2.TabIndex = 95;
@@ -188,9 +191,9 @@
             // 
             this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Enabled = false;
             this.lblNombre.Font = new System.Drawing.Font("Orator Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(413, 20);
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(347, 13);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(379, 43);
             this.lblNombre.TabIndex = 94;
@@ -207,6 +210,15 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 66);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1200, 10);
+            this.panel1.TabIndex = 96;
             // 
             // inicio
             // 
@@ -246,6 +258,7 @@
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Panel PVentanas;
         public System.Windows.Forms.Panel Pindicador;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

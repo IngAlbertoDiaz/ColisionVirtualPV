@@ -20,8 +20,6 @@ namespace ColisionSoft
 
         private void ActualizarInventario_Load(object sender, EventArgs e)
         {
-
-            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -49,17 +47,12 @@ namespace ColisionSoft
                 if (_Actualizar > 0)
                 {
                     msgbox.Exito("Datos actualizados");
-                    
-                    this.Close();
                 }
-
             }
             catch (Exception)
             {
                 msgbox.Error("Error al actualizar");
             }
         }
-
-        
     }
 }
