@@ -23,7 +23,7 @@ namespace ColisionSoft
 
         private void btnNuevaCaja_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.caja_inicial = Convert.ToDouble(txtCaja.Text);
+            Properties.Settings.Default.caja_inicial = txtCaja.Text;
             Properties.Settings.Default.Save();
         }
     }

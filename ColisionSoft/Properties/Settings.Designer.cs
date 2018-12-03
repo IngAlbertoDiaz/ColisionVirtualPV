@@ -50,9 +50,9 @@ namespace ColisionSoft.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public double caja_inicial {
+        public string caja_inicial {
             get {
-                return ((double)(this["caja_inicial"]));
+                return ((string)(this["caja_inicial"]));
             }
             set {
                 this["caja_inicial"] = value;
@@ -62,9 +62,9 @@ namespace ColisionSoft.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public double caja_final {
+        public string caja_final {
             get {
-                return ((double)(this["caja_final"]));
+                return ((string)(this["caja_final"]));
             }
             set {
                 this["caja_final"] = value;

@@ -123,7 +123,7 @@ namespace ColisionSoft
                             _fila.Cells[8].Value.ToString(),
                             _fila.Cells[9].Value.ToString()
                         );
-                    _ActInv.ShowDialog();
+                    _ActInv.Show();
                 }
             }
             catch (Exception)
@@ -144,6 +144,18 @@ namespace ColisionSoft
             txtPU.Text = ""; 
             txtProveedor.Text = "";
             dgvInventario.ClearSelection();
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            ImportarInventario _importExcel = new ImportarInventario();
+            if (_importExcel.ShowDialog() == DialogResult.OK)
+            {
+                msgbox.Exito("Datos importados con exito");
+            }
+            else
+            {
+            }
         }
     }
 }

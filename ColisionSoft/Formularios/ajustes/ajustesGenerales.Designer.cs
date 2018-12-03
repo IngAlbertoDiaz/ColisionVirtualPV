@@ -36,9 +36,15 @@
             this.btnRT = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnProvTemplate = new System.Windows.Forms.Button();
+            this.btnInvTemplate = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTicket = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -91,15 +97,17 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblTicket);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.btnRT);
             this.groupBox3.Font = new System.Drawing.Font("Orator Std", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(398, 58);
+            this.groupBox3.Location = new System.Drawing.Point(398, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(264, 102);
+            this.groupBox3.Size = new System.Drawing.Size(239, 177);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Reiniciar Tickets";
+            this.groupBox3.Text = "Tickets";
             // 
             // btnRT
             // 
@@ -108,7 +116,7 @@
             this.btnRT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRT.Font = new System.Drawing.Font("Orator Std", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRT.ForeColor = System.Drawing.Color.White;
-            this.btnRT.Location = new System.Drawing.Point(28, 35);
+            this.btnRT.Location = new System.Drawing.Point(17, 118);
             this.btnRT.Name = "btnRT";
             this.btnRT.Size = new System.Drawing.Size(209, 46);
             this.btnRT.TabIndex = 2;
@@ -134,6 +142,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.groupBox3);
@@ -141,6 +150,67 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(956, 458);
             this.panel1.TabIndex = 14;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnProvTemplate);
+            this.groupBox1.Controls.Add(this.btnInvTemplate);
+            this.groupBox1.Font = new System.Drawing.Font("Orator Std", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(16, 196);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(376, 166);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Generar plantillas";
+            // 
+            // btnProvTemplate
+            // 
+            this.btnProvTemplate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
+            this.btnProvTemplate.FlatAppearance.BorderSize = 0;
+            this.btnProvTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProvTemplate.Font = new System.Drawing.Font("Orator Std", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProvTemplate.ForeColor = System.Drawing.Color.White;
+            this.btnProvTemplate.Location = new System.Drawing.Point(13, 101);
+            this.btnProvTemplate.Name = "btnProvTemplate";
+            this.btnProvTemplate.Size = new System.Drawing.Size(352, 46);
+            this.btnProvTemplate.TabIndex = 3;
+            this.btnProvTemplate.Text = "Plantilla de proveedores";
+            this.btnProvTemplate.UseVisualStyleBackColor = false;
+            this.btnProvTemplate.Click += new System.EventHandler(this.btnProvTemplate_Click);
+            // 
+            // btnInvTemplate
+            // 
+            this.btnInvTemplate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(0)))));
+            this.btnInvTemplate.FlatAppearance.BorderSize = 0;
+            this.btnInvTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInvTemplate.Font = new System.Drawing.Font("Orator Std", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvTemplate.ForeColor = System.Drawing.Color.White;
+            this.btnInvTemplate.Location = new System.Drawing.Point(13, 35);
+            this.btnInvTemplate.Name = "btnInvTemplate";
+            this.btnInvTemplate.Size = new System.Drawing.Size(352, 46);
+            this.btnInvTemplate.TabIndex = 2;
+            this.btnInvTemplate.Text = "Plantilla de inventario";
+            this.btnInvTemplate.UseVisualStyleBackColor = false;
+            this.btnInvTemplate.Click += new System.EventHandler(this.btnInvTemplate_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 28);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Ticket actual";
+            // 
+            // lblTicket
+            // 
+            this.lblTicket.AutoSize = true;
+            this.lblTicket.Location = new System.Drawing.Point(29, 74);
+            this.lblTicket.Name = "lblTicket";
+            this.lblTicket.Size = new System.Drawing.Size(181, 28);
+            this.lblTicket.TabIndex = 4;
+            this.lblTicket.Text = "Ticket actual";
             // 
             // ajustesGenerales
             // 
@@ -153,10 +223,13 @@
             this.Name = "ajustesGenerales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ajustesGenerales";
+            this.Load += new System.EventHandler(this.ajustesGenerales_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -171,5 +244,10 @@
         private System.Windows.Forms.Button btnRT;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnProvTemplate;
+        private System.Windows.Forms.Button btnInvTemplate;
+        private System.Windows.Forms.Label lblTicket;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -8,10 +8,10 @@
     <Setting Name="ticket" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="caja_inicial" Type="System.Double" Scope="User">
+    <Setting Name="caja_inicial" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="caja_final" Type="System.Double" Scope="User">
+    <Setting Name="caja_final" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ColisionSoftConStr" Type="(Connection string)" Scope="Application">

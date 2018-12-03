@@ -18,6 +18,61 @@ namespace ColisionSoft
 
         private void venta_Load(object sender, EventArgs e)
         {
+            try
+            {
+                flowLayoutPanel1.Controls.Clear();
+                SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|ColisionSoft.mdf';Integrated Security=True");
+
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM inventario", cn);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Button btn = new Button();
+                    btn.Name = "btn" + dt.Rows[i][0];
+                    btn.Text = dt.Rows[i][1].ToString();
+                    btn.Font = new Font("ORATOR STD", 14f, FontStyle.Bold);
+                    btn.ForeColor = Color.White;
+                    // btn.UseCompatibleTextRendering = true;
+                    btn.BackColor = Color.FromArgb(0, 120, 0);
+                    btn.FlatAppearance.BorderSize = 0;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.Height = 55;
+                    btn.Width = 145;
+                    btn.Click += button1_Click;
+                    flowLayoutPanel1.Controls.Add(btn);
+                }
+            }
+            catch (Exception)
+            {
+                msgbox.Error("UPS! Algo salio mal, intenta de nuevo");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Button button = sender as Button;
+                float sum = 0;
+                SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|ColisionSoft.mdf';Integrated Security=True");
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM inventario WHERE  nombre = '" + button.Text + "'", cn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgvVenta.Rows.Add(Properties.Settings.Default.ticket, dt.Rows[0][1], dt.Rows[0][4]);
+                for (int i = 0; i < dgvVenta.Rows.Count; i++)
+                {
+                    sum += float.Parse(dgvVenta.Rows[i].Cells[2].Value.ToString());
+                }
+                lblCantidad.Text = sum.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo salio mal, intenta de nuevo");
+            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -74,45 +129,7 @@ namespace ColisionSoft
             Fgranel.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                flowLayoutPanel1.Controls.Clear();
-                SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|ColisionSoft.mdf';Integrated Security=True");
-
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM usuarios WHERE usuario LIKE '" + comboBox1.Text + "%'", cn);
-
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    Button btn = new Button();
-                    btn.Name = "btn" + dt.Rows[i][1];
-                    btn.Tag = dt.Rows[i][0];
-                    btn.Text = dt.Rows[i][1].ToString();
-                    btn.Font = new Font("ORATOR STD", 14f, FontStyle.Bold);
-                    btn.ForeColor = Color.White;
-                    // btn.UseCompatibleTextRendering = true;
-                    btn.BackColor = Color.FromArgb(0,120,0);
-                    btn.FlatAppearance.BorderSize = 0;
-                    btn.FlatStyle = FlatStyle.Flat;
-                    btn.Height = 52;
-                    btn.Width = 174;
-                    btn.Click += button1_Click;
-                    flowLayoutPanel1.Controls.Add(btn);
-                }
-            }
-            catch (Exception)
-            {
-                msgbox.Error("UPS! Algo salio mal, intenta de nuevo");
-            }
-        }
+        
+        
     }
 }
