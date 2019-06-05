@@ -78,7 +78,6 @@ namespace ColisionSoft
             if (btnVenta.Enabled == false)
             {
                 btnInventario.Enabled = true;
-                btnProveedores.Enabled = true;
                 btnAjustes.Enabled = true;
             }
         }
@@ -101,26 +100,6 @@ namespace ColisionSoft
             if (btnInventario.Enabled == false)
             {
                 btnVenta.Enabled = true;
-                btnProveedores.Enabled = true;
-                btnAjustes.Enabled = true;
-            }
-        }
-
-        public void FormProveedores()
-        {
-            btnProveedores.Enabled = false;
-            Pindicador.Height = btnProveedores.Height;
-            Pindicador.Top = btnProveedores.Top;
-            PVentanas.Controls.Clear();
-            proveedores prov = new proveedores();
-            CerrarFormulariosExtra();
-            prov.TopLevel = false;
-            PVentanas.Controls.Add(prov);
-            prov.Show();
-            if (btnProveedores.Enabled == false)
-            {
-                btnVenta.Enabled = true;
-                btnInventario.Enabled = true;
                 btnAjustes.Enabled = true;
             }
         }
@@ -140,7 +119,6 @@ namespace ColisionSoft
             {
                 btnVenta.Enabled = true;
                 btnInventario.Enabled = true;
-                btnProveedores.Enabled = true;
             }
         }
 
@@ -167,22 +145,7 @@ namespace ColisionSoft
             }
             
         }
-
-        private void btnProveedores_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (privilegio == 1)
-                {
-                    FormProveedores();
-                }
-            }
-            catch (Exception)
-            {
-                msgbox.Error("Algo salio mal");
-            }
-        }
-
+        
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             cambiar_salir cs = new cambiar_salir();
@@ -229,7 +192,7 @@ namespace ColisionSoft
             }
             catch (Exception)
             {
-                label2.Text = ":( no sabemos que dia es";
+                label2.Text = ":( no se que dia es";
             }
         }
     }

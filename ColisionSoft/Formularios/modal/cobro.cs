@@ -30,23 +30,40 @@ namespace ColisionSoft
 
         private void txtRecibir_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                if (txtRecibir.Text == "")
+                if (e.KeyCode == Keys.Enter)
                 {
-                    this.BackColor = Color.FromArgb(120, 0, 0);
-                    timer1.Start();
-                }
-                else
-                {
-                    string valor = lblTotal.Text;
-                    string[] info = valor.Split('$');
-                    double total = Convert.ToDouble(info[1]);
-                    double recibido = Convert.ToDouble(txtRecibir.Text);
-                    double resultado = total - recibido;
-                    lblCambio.Text = "Cambio: " + resultado.ToString();
+                    if (txtRecibir.Text == "")
+                    {
+                        this.BackColor = Color.FromArgb(120, 0, 0);
+                        timer1.Start();
+                    }
+                    else
+                    {
+                        string valor = lblTotal.Text;
+                        string[] info = valor.Split('$');
+                        double total = Convert.ToDouble(info[1]);
+                        double recibido = Convert.ToDouble(txtRecibir.Text);
+                        if (recibido < total)
+                        {
+                            msgbox.Error("El monto recibido es menor al costo total.");
+                        }
+                        else
+                        {
+                            double resultado = recibido - total;
+                            lblCambio.Text = "Cambio: " + resultado.ToString();
+                        }
+
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                msgbox.Error("Algo salio mal");
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
         private void txtRecibir_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -55,10 +72,6 @@ namespace ColisionSoft
             {
                 this.BackColor = Color.FromArgb(120, 0, 0);
             }
-            else
-            {
-            }
-
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)
@@ -87,7 +100,5 @@ namespace ColisionSoft
         {
             this.BackColor = Color.FromArgb(0, 120, 0);
         }
-
-        
     }
 }

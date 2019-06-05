@@ -18,66 +18,14 @@ namespace ColisionSoft
 
         private void venta_Load(object sender, EventArgs e)
         {
-            try
-            {
-                flowLayoutPanel1.Controls.Clear();
-                SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|ColisionSoft.mdf';Integrated Security=True");
-
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM inventario", cn);
-
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    Button btn = new Button();
-                    btn.Name = "btn" + dt.Rows[i][0];
-                    btn.Text = dt.Rows[i][1].ToString();
-                    btn.Font = new Font("ORATOR STD", 14f, FontStyle.Bold);
-                    btn.ForeColor = Color.White;
-                    // btn.UseCompatibleTextRendering = true;
-                    btn.BackColor = Color.FromArgb(0, 120, 0);
-                    btn.FlatAppearance.BorderSize = 0;
-                    btn.FlatStyle = FlatStyle.Flat;
-                    btn.Height = 55;
-                    btn.Width = 145;
-                    btn.Click += button1_Click;
-                    flowLayoutPanel1.Controls.Add(btn);
-                }
-            }
-            catch (Exception)
-            {
-                msgbox.Error("UPS! Algo salio mal, intenta de nuevo");
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Button button = sender as Button;
-                float sum = 0;
-                SqlConnection cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='|DataDirectory|ColisionSoft.mdf';Integrated Security=True");
-                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM inventario WHERE  nombre = '" + button.Text + "'", cn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvVenta.Rows.Add(Properties.Settings.Default.ticket, dt.Rows[0][1], dt.Rows[0][4]);
-                for (int i = 0; i < dgvVenta.Rows.Count; i++)
-                {
-                    sum += float.Parse(dgvVenta.Rows[i].Cells[2].Value.ToString());
-                }
-                lblCantidad.Text = sum.ToString();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Algo salio mal, intenta de nuevo");
-            }
-            
+            txtProducto.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             lblCantidad.Text = "";
+            txtProducto.Text = "";
+            txtProducto.Focus();
             dgvVenta.Rows.Clear();
         }
 
@@ -87,20 +35,20 @@ namespace ColisionSoft
             {
                 DialogResult dr = new DialogResult();
                 cobro fcob = new cobro();
-                DBCon db = new DBCon();
+                DBConn db = new DBConn();
                 total = lblCantidad.Text;
                 dr = cobro.Cobrar();
                 if (dr == DialogResult.OK)
                 {
-                    db._CONN.ConnectionString = db._DB;
-                    db._CONN.Open();
+                    db.sqlConnection.ConnectionString = db.dbString;
+                    db.sqlConnection.Open();
 
                     for (int i = 0; i < dgvVenta.Rows.Count; i++)
                     {
-                        SqlDataAdapter query = new SqlDataAdapter("INSERT INTO ventas (n_ticket,producto,precio) VALUES ("
+                        SqlDataAdapter query = new SqlDataAdapter("INSERT INTO ventas (nTicket,codigo_prod,precio) VALUES ("
                             + dgvVenta.Rows[i].Cells["ticket"].Value + ",'"
-                            + dgvVenta.Rows[i].Cells["producto"].Value + "',"
-                            + dgvVenta.Rows[i].Cells["precio"].Value + ");", db._CONN
+                            + dgvVenta.Rows[i].Cells["codigo"].Value + "',"
+                            + dgvVenta.Rows[i].Cells["precio"].Value + ");", db.sqlConnection
                             );
                     }
 
@@ -123,13 +71,56 @@ namespace ColisionSoft
             }
         }
 
-        private void btnGranel_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            granel Fgranel = new granel(this);
-            Fgranel.Show();
+            AgregarProducto(txtProducto.Text);
+            txtProducto.Text = "";
+            txtProducto.Focus();
         }
 
-        
-        
+        private void txtProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AgregarProducto(txtProducto.Text);
+            }
+        }
+
+        public void AgregarProducto(string codigo)
+        {
+            try
+            {
+                invMet metInventario = new invMet();
+                DataTable dtResult = metInventario.ConsultarInventario("SELECT codigo, precio_unitario FROM inventario WHERE codigo = '" + txtProducto.Text + "'");
+                float total = 0f;
+
+                if (dtResult != null)
+                {
+                    if (dtResult.Rows.Count > 0)
+                    {
+                        dgvVenta.Rows.Insert(0, Properties.Settings.Default.ticket ,dtResult.Rows[0]["codigo"], dtResult.Rows[0]["precio_unitario"]);
+                        for (int i = 0; i < dgvVenta.Rows.Count; i++)
+                        {
+                            total += float.Parse(dgvVenta.Rows[i].Cells[2].Value.ToString());
+                        }
+                        lblCantidad.Text = total.ToString();
+                    }
+                    else
+                    {
+                        msgbox.Error("No se encuentra el producto");
+                    }
+                }
+                else
+                {
+                    msgbox.Error("Ocurrio un error al consultar la informacion");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+                msgbox.Error("Algo salio mal");
+            }
+        }
     }
 }

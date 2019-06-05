@@ -16,11 +16,11 @@ namespace ColisionSoft
         
         public void AutoCompletarBusqueda()
         {
-            txtProveedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txtProveedor.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            //txtProveedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //txtProveedor.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //AutoCompleteStringCollection col = new AutoCompleteStringCollection();
 
-            invMet varProdMet = new invMet();
+            //invMet varProdMet = new invMet();
             /*
             var resultado = varProdMet.ConsultarProveedores();
 
@@ -37,7 +37,7 @@ namespace ColisionSoft
             {
             }
             */
-            txtProveedor.AutoCompleteCustomSource = col;
+            //txtProveedor.AutoCompleteCustomSource = col;
         }
 
         public void CargarDGV()
@@ -46,7 +46,7 @@ namespace ColisionSoft
 
             invMet _inv = new invMet();
 
-            DataTable resultado = _inv.ConsultarInventario();
+            DataTable resultado = _inv.ConsultarInventario(null);
 
             if (resultado != null)
             {
@@ -62,48 +62,19 @@ namespace ColisionSoft
             CargarDGV();
             dgvInventario.ClearSelection();
         }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                gsInventario _gsi = new gsInventario();
-                
-                _gsi.nombre = txtNombre.Text;
-                _gsi.peso = float.Parse(txtPeso.Text);
-                _gsi.unidad_medida = cbUM.Text;
-                _gsi.precio = float.Parse(txtPU.Text);
-                _gsi.bodega = float.Parse(txtBodega.Text);
-                _gsi.exhibicion = float.Parse(txtExhibicion.Text);
-                _gsi.proveedor = Convert.ToInt32(txtProveedor.Text);
-
-                int resGuardar = invMet.Agregar(_gsi);
-
-                if (resGuardar > 0)
-                {
-                    msgbox.Exito("Producto agregado");
-                    CargarDGV();
-                }
-
-            }
-            catch (Exception)
-            {
-                msgbox.Error("Error al agregar");
-            }
-        }
-
+        
         private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 DataGridViewRow _fila = dgvInventario.CurrentRow;
-                gsInventario _gsi = new gsInventario();
+                gsInventario gsi = new gsInventario();
 
                 if (e.ColumnIndex == 0 && e.RowIndex >= 0)
                 {
-                    _gsi.id = Convert.ToInt32(_fila.Cells[2].Value);
+                    gsi.id = Convert.ToInt32(_fila.Cells[2].Value);
 
-                    int resultado = invMet.Eliminar(_gsi);
+                    int resultado = invMet.Eliminar(gsi);
 
                     if (resultado > 0)
                     {
@@ -113,7 +84,7 @@ namespace ColisionSoft
                 }
                 else if (e.ColumnIndex == 1 && e.RowIndex >= 0)
                 {
-                    ActualizarInventario _ActInv = new ActualizarInventario(
+                    ActualizarInventario fActInv = new ActualizarInventario(
                             _fila.Cells[2].Value.ToString(),
                             _fila.Cells[3].Value.ToString(),
                             _fila.Cells[4].Value.ToString(),
@@ -121,9 +92,10 @@ namespace ColisionSoft
                             _fila.Cells[6].Value.ToString(),
                             _fila.Cells[7].Value.ToString(),
                             _fila.Cells[8].Value.ToString(),
-                            _fila.Cells[9].Value.ToString()
+                            _fila.Cells[9].Value.ToString(),
+                            Convert.ToInt32(_fila.Cells[10].Value)
                         );
-                    _ActInv.Show();
+                    fActInv.Show();
                 }
             }
             catch (Exception)
@@ -136,13 +108,7 @@ namespace ColisionSoft
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             seleccionado = false;
-            txtNombre.Text = "";
-            txtPeso.Text = "";
-            cbUM.Text = "";
-            txtBodega.Text = "";
-            txtExhibicion.Text = "";
-            txtPU.Text = ""; 
-            txtProveedor.Text = "";
+            
             dgvInventario.ClearSelection();
         }
 

@@ -37,13 +37,13 @@
             // 
             this.btnAcerca.FlatAppearance.BorderSize = 0;
             this.btnAcerca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcerca.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcerca.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcerca.ForeColor = System.Drawing.Color.White;
             this.btnAcerca.Image = global::ColisionSoft.Properties.Resources.usuario100x100;
             this.btnAcerca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcerca.Location = new System.Drawing.Point(636, 100);
+            this.btnAcerca.Location = new System.Drawing.Point(494, 12);
             this.btnAcerca.Name = "btnAcerca";
-            this.btnAcerca.Size = new System.Drawing.Size(272, 157);
+            this.btnAcerca.Size = new System.Drawing.Size(230, 157);
             this.btnAcerca.TabIndex = 7;
             this.btnAcerca.Text = "Acerca de";
             this.btnAcerca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -54,13 +54,13 @@
             // 
             this.btnAjustes.FlatAppearance.BorderSize = 0;
             this.btnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjustes.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjustes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjustes.ForeColor = System.Drawing.Color.White;
             this.btnAjustes.Image = global::ColisionSoft.Properties.Resources.usuario100x100;
             this.btnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjustes.Location = new System.Drawing.Point(358, 100);
+            this.btnAjustes.Location = new System.Drawing.Point(248, 12);
             this.btnAjustes.Name = "btnAjustes";
-            this.btnAjustes.Size = new System.Drawing.Size(272, 157);
+            this.btnAjustes.Size = new System.Drawing.Size(240, 157);
             this.btnAjustes.TabIndex = 5;
             this.btnAjustes.Text = "Ajustes del Programa";
             this.btnAjustes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -71,13 +71,13 @@
             // 
             this.btnUsuarios.FlatAppearance.BorderSize = 0;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.Image = global::ColisionSoft.Properties.Resources.usuario100x100;
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(80, 100);
+            this.btnUsuarios.Location = new System.Drawing.Point(12, 12);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(272, 157);
+            this.btnUsuarios.Size = new System.Drawing.Size(230, 157);
             this.btnUsuarios.TabIndex = 0;
             this.btnUsuarios.Text = "Cuentas de Usuarios";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -89,7 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(70)))));
-            this.ClientSize = new System.Drawing.Size(995, 550);
+            this.ClientSize = new System.Drawing.Size(750, 490);
             this.Controls.Add(this.btnAcerca);
             this.Controls.Add(this.btnAjustes);
             this.Controls.Add(this.btnUsuarios);

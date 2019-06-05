@@ -12,6 +12,11 @@ namespace ColisionSoft
             InitializeComponent();
         }
 
+        private void ajustesGenerales_Load(object sender, EventArgs e)
+        {
+            lblTicket.Text = "N°:" + Properties.Settings.Default.ticket.ToString();
+        }
+
         private void btnGuardarAjustes_Click(object sender, EventArgs e)
         {
             //Cambia valores de la aplicacion
@@ -43,17 +48,11 @@ namespace ColisionSoft
 
         private void btnInvTemplate_Click(object sender, EventArgs e)
         {
-            string TemplateInv = "PlantillaInventario";
-            GenerarExcel(TemplateInv);
+            GenerarExcel("PlantillaInventario");
         }
 
-        private void btnProvTemplate_Click(object sender, EventArgs e)
-        {
-            string TemplateInv = "PlantillaProveedores";
-            GenerarExcel(TemplateInv);
-        }
 
-        public void GenerarExcel(string nombre)
+        public void GenerarExcel(string pNombre)
         {
             try
             {
@@ -71,19 +70,21 @@ namespace ColisionSoft
                 _LibroExcel = xlApp.Workbooks.Add(misValue);
                 _HojaExcel = (excel.Worksheet)_LibroExcel.Worksheets.get_Item(1);
 
-                if (nombre == "PlantillaInventario")
+                //Llena las cabeceras
+                if (pNombre == "PlantillaInventario")
                 {
-                    _HojaExcel.Cells[1, 1] = "NOMBRE";
-                    _HojaExcel.Cells[1, 2] = "APELLIDO";
+                    _HojaExcel.Cells[1, 1] = "codigo";
+                    _HojaExcel.Cells[1, 2] = "marca";
+                    _HojaExcel.Cells[1, 3] = "tipo";
+                    _HojaExcel.Cells[1, 4] = "medida";
+                    _HojaExcel.Cells[1, 5] = "color";
+                    _HojaExcel.Cells[1, 6] = "descripcion";
+                    _HojaExcel.Cells[1, 7] = "cantidad";
+                    _HojaExcel.Cells[1, 8] = "precio_unitario";
                 }
-                else if (nombre == "PlantillaProveedores")
-                {
-                    _HojaExcel.Cells[1, 1] = "nombre";
-                    _HojaExcel.Cells[1, 2] = "abrev";
-                }
-                
 
-                _LibroExcel.SaveAs(ruta + "\\"+ nombre +".xlsx", excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                //Genera archivo XLSX
+                _LibroExcel.SaveAs(ruta + "\\"+ pNombre +".xlsx", excel.XlFileFormat.xlOpenXMLWorkbook, misValue, misValue, misValue, misValue, excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
                 _LibroExcel.Close(true, misValue, misValue);
                 xlApp.Quit();
 
@@ -98,11 +99,6 @@ namespace ColisionSoft
                 msgbox.Error("Ocurrio un error");
             }
             
-        }
-
-        private void ajustesGenerales_Load(object sender, EventArgs e)
-        {
-            lblTicket.Text = "N°:" + Properties.Settings.Default.ticket.ToString();
         }
     }
 }

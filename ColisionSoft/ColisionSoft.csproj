@@ -75,12 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formularios\modal\ActualizarProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\modal\ActualizarProveedor.Designer.cs">
-      <DependentUpon>ActualizarProveedor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\ajustes\acercade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,12 +123,6 @@
     <Compile Include="Formularios\modal\cobro.Designer.cs">
       <DependentUpon>cobro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\modal\granel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\modal\granel.Designer.cs">
-      <DependentUpon>granel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,9 +147,15 @@
     <Compile Include="Formularios\modal\ImportarInventario.Designer.cs">
       <DependentUpon>ImportarInventario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Librerias\ConexionBD\DBCon.cs" />
+    <Compile Include="Formularios\modal\InsertarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\modal\InsertarProducto.Designer.cs">
+      <DependentUpon>InsertarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Librerias\GetterSetter\gsInventario.cs" />
     <Compile Include="Librerias\GetterSetter\gsUsuarios.cs" />
+    <Compile Include="Librerias\Metodos\DBConn.cs" />
     <Compile Include="Librerias\Metodos\usuariosMet.cs" />
     <Compile Include="Librerias\Metodos\invMet.cs" />
     <Compile Include="Formularios\modal\msgbox.cs">
@@ -170,16 +164,9 @@
     <Compile Include="Formularios\modal\msgbox.Designer.cs">
       <DependentUpon>msgbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Librerias\Metodos\ventasMet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Formularios\proveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\proveedores.Designer.cs">
-      <DependentUpon>proveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Librerias\GetterSetter\gsProveedores.cs" />
-    <Compile Include="Librerias\Metodos\provMet.cs" />
     <Compile Include="Formularios\venta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,9 +188,6 @@
     <EmbeddedResource Include="Formularios\modal\ActualizarInventario.resx">
       <DependentUpon>ActualizarInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\modal\ActualizarProveedor.resx">
-      <DependentUpon>ActualizarProveedor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\modal\caja.resx">
       <DependentUpon>caja.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\modal\cobro.resx">
       <DependentUpon>cobro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\modal\granel.resx">
-      <DependentUpon>granel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\inicio.resx">
       <DependentUpon>inicio.cs</DependentUpon>
@@ -228,11 +209,11 @@
     <EmbeddedResource Include="Formularios\modal\ImportarInventario.resx">
       <DependentUpon>ImportarInventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\proveedores.resx">
-      <DependentUpon>proveedores.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\modal\msgbox.resx">
       <DependentUpon>msgbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\modal\InsertarProducto.resx">
+      <DependentUpon>InsertarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

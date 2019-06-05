@@ -6,81 +6,61 @@ namespace ColisionSoft
 {
     class usuariosMet
     {
+
         //CREATE
 
-        public static int Agregar(gsUsuarios _gsu)
+        public static int Agregar(gsUsuarios gsu)
         {
-            DBCon DB = new DBCon();
-            DB._CONN.ConnectionString = DB._DB;
-            DB._CONN.Open();
-            string query = "INSERT INTO usuarios (usuario, pass, privilegios)  VALUES ('" + _gsu.usuario + "','" + _gsu.pass + "', '" + _gsu.privilegios + "')";
-            DB._CMD.CommandText = query;
-            DB._CMD.Connection = DB._CONN;
-            int res = DB._CMD.ExecuteNonQuery();
-            DB._CONN.Close();
+            DBConn db = new DBConn();
+            db.sqlConnection.ConnectionString = db.dbString;
+            db.sqlConnection.Open();
+            string query = "INSERT INTO usuarios (usuario, pass, privilegios)  VALUES ('" + gsu.usuario + "','" + gsu.pass + "', '" + gsu.privilegios + "')";
+            db.sqlCommand.CommandText = query;
+            db.sqlCommand.Connection = db.sqlConnection;
+            int res = db.sqlCommand.ExecuteNonQuery();
+            db.sqlConnection.Close();
 
             return res;
         }
 
         //READ
 
-        public DataTable login(string _usuario, string _pass)
+        public DataTable login(string pUsuario, string pPass)
         {
+            DBConn db = new DBConn();
             DataTable resultado = new DataTable();
-            DBCon DB = new DBCon();
-            try
-            {
-                DB._CONN.ConnectionString = DB._DB;
-                DB._CONN.Open();
+            db.sqlConnection.ConnectionString = db.dbString;
+            db.sqlConnection.Open();
 
-                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios WHERE usuario = '" + _usuario + "' AND pass = '" + _pass + "' ", DB._CONN);
-                sql.Fill(resultado);
-                DB._CONN.Close();
-                return resultado;
-            }
-            catch (Exception)
-            {
-                return resultado;
-            }
+            SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios WHERE usuario = '" + pUsuario + "' AND pass = '" + pPass + "' ", db.sqlConnection);
+            sql.Fill(resultado);
+            db.sqlConnection.Close();
+            return resultado;
         }
 
         public DataTable ConsultarUsuarios()
         {
+            DBConn db = new DBConn();
             DataTable resultado = new DataTable();
-            DBCon DB = new DBCon();
-            try
-            {
-                DB._CONN.ConnectionString = DB._DB;
-                DB._CONN.Open();
+            db.sqlConnection.ConnectionString = db.dbString;
+            db.sqlConnection.Open();
 
-                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios", DB._CONN);
-                sql.Fill(resultado);
-                DB._CONN.Close();
-                return resultado;
-            }
-            catch (Exception)
-            {
-                return resultado;
-            }
+            SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios", db.sqlConnection);
+            sql.Fill(resultado);
+            db.sqlConnection.Close();
+            return resultado;
         }
 
         public DataTable ConsultarAdmins()
         {
+            DBConn db = new DBConn();
             DataTable resultado = new DataTable();
-            DBCon DB = new DBCon();
-            try
-            {
-                DB._CONN.ConnectionString = DB._DB;
-                DB._CONN.Open();
-                SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios WHERE privilegios = 1", DB._CONN);
-                sql.Fill(resultado);
-                DB._CONN.Close();
-                return resultado;
-            }
-            catch (Exception)
-            {
-                return resultado;
-            }
+            db.sqlConnection.ConnectionString = db.dbString;
+            db.sqlConnection.Open();
+            SqlDataAdapter sql = new SqlDataAdapter("SELECT * FROM usuarios WHERE privilegios = 1", db.sqlConnection);
+            sql.Fill(resultado);
+            db.sqlConnection.Close();
+            return resultado;
         }
 
         //UPDATE
@@ -90,16 +70,16 @@ namespace ColisionSoft
 
         //DELETE
 
-        public static int Eliminar(gsUsuarios _gsu)
+        public static int Eliminar(gsUsuarios gsu)
         {
-            DBCon DB = new DBCon();
-            DB._CONN.ConnectionString = DB._DB;
-            DB._CONN.Open();
-            string query = "DELETE FROM usuarios WHERE id = '" + _gsu.id + "'";
-            DB._CMD.CommandText = query;
-            DB._CMD.Connection = DB._CONN;
-            int res = DB._CMD.ExecuteNonQuery();
-            DB._CONN.Close();
+            DBConn db = new DBConn();
+            db.sqlConnection.ConnectionString = db.dbString;
+            db.sqlConnection.Open();
+            string query = "DELETE FROM usuarios WHERE id = '" + gsu.id + "'";
+            db.sqlCommand.CommandText = query;
+            db.sqlCommand.Connection = db.sqlConnection;
+            int res = db.sqlCommand.ExecuteNonQuery();
+            db.sqlConnection.Close();
 
             return res;
         }

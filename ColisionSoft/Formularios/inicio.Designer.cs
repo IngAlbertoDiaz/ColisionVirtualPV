@@ -36,14 +36,13 @@
             this.btnAjustes = new System.Windows.Forms.Button();
             this.btnVenta = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnProveedores = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.PVentanas = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.PFormulario = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PHerramientas.SuspendLayout();
             this.PFormulario.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +61,6 @@
             this.PHerramientas.Controls.Add(this.btnAjustes);
             this.PHerramientas.Controls.Add(this.btnVenta);
             this.PHerramientas.Controls.Add(this.btnCerrar);
-            this.PHerramientas.Controls.Add(this.btnProveedores);
             this.PHerramientas.Controls.Add(this.btnInventario);
             this.PHerramientas.Cursor = System.Windows.Forms.Cursors.Default;
             this.PHerramientas.Dock = System.Windows.Forms.DockStyle.Left;
@@ -88,7 +86,7 @@
             this.btnAjustes.ForeColor = System.Drawing.Color.White;
             this.btnAjustes.Location = new System.Drawing.Point(17, 340);
             this.btnAjustes.Name = "btnAjustes";
-            this.btnAjustes.Size = new System.Drawing.Size(121, 95);
+            this.btnAjustes.Size = new System.Drawing.Size(124, 95);
             this.btnAjustes.TabIndex = 101;
             this.btnAjustes.TabStop = false;
             this.btnAjustes.Text = "Ajustes";
@@ -105,7 +103,7 @@
             this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVenta.Location = new System.Drawing.Point(17, 6);
             this.btnVenta.Name = "btnVenta";
-            this.btnVenta.Size = new System.Drawing.Size(121, 95);
+            this.btnVenta.Size = new System.Drawing.Size(124, 95);
             this.btnVenta.TabIndex = 100;
             this.btnVenta.TabStop = false;
             this.btnVenta.Text = "Venta";
@@ -117,7 +115,7 @@
             this.btnCerrar.BackColor = System.Drawing.Color.Red;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Orator Std", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.Location = new System.Drawing.Point(0, 441);
             this.btnCerrar.Name = "btnCerrar";
@@ -128,23 +126,6 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnProveedores
-            // 
-            this.btnProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(70)))));
-            this.btnProveedores.FlatAppearance.BorderSize = 0;
-            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedores.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedores.ForeColor = System.Drawing.Color.White;
-            this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnProveedores.Location = new System.Drawing.Point(17, 210);
-            this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(121, 95);
-            this.btnProveedores.TabIndex = 99;
-            this.btnProveedores.TabStop = false;
-            this.btnProveedores.Text = "Proveedores";
-            this.btnProveedores.UseVisualStyleBackColor = false;
-            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
-            // 
             // btnInventario
             // 
             this.btnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(54)))), ((int)(((byte)(70)))));
@@ -154,7 +135,7 @@
             this.btnInventario.ForeColor = System.Drawing.Color.White;
             this.btnInventario.Location = new System.Drawing.Point(17, 109);
             this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(121, 95);
+            this.btnInventario.Size = new System.Drawing.Size(124, 95);
             this.btnInventario.TabIndex = 98;
             this.btnInventario.TabStop = false;
             this.btnInventario.Text = "Inventario";
@@ -176,38 +157,29 @@
             // 
             this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Orator Std", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(88, 9);
+            this.lblNombre.Location = new System.Drawing.Point(10, 13);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(379, 43);
+            this.lblNombre.Size = new System.Drawing.Size(405, 37);
             this.lblNombre.TabIndex = 94;
             this.lblNombre.Text = "NOMBRE DEL NEGOCIO";
-            this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Orator Std", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(645, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 25);
+            this.label2.Size = new System.Drawing.Size(65, 24);
             this.label2.TabIndex = 95;
             this.label2.Text = "HORA";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 66);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 10);
-            this.panel1.TabIndex = 96;
-            // 
             // PFormulario
             // 
-            this.PFormulario.BackColor = System.Drawing.Color.Transparent;
+            this.PFormulario.BackColor = System.Drawing.Color.DimGray;
             this.PFormulario.Controls.Add(this.panel1);
             this.PFormulario.Controls.Add(this.label2);
             this.PFormulario.Controls.Add(this.lblNombre);
@@ -219,6 +191,15 @@
             this.PFormulario.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PFormulario_MouseDown);
             this.PFormulario.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PFormulario_MouseMove);
             this.PFormulario.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PFormulario_MouseUp);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 66);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(900, 10);
+            this.panel1.TabIndex = 96;
             // 
             // inicio
             // 
@@ -248,7 +229,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel PHerramientas;
         private System.Windows.Forms.Button btnInventario;
-        private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Button btnAjustes;
@@ -257,8 +237,8 @@
         public System.Windows.Forms.Panel Pindicador;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PFormulario;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

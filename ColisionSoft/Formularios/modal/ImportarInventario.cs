@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 
 namespace ColisionSoft
 {
@@ -45,24 +46,44 @@ namespace ColisionSoft
 
         private void btnSelecExcel_Click(object sender, EventArgs e)
         {
-            String ruta = "";
             try
             {
+                string ConStr = "";
                 OpenFileDialog openfile1 = new OpenFileDialog();
-                openfile1.Filter = "Excel Files |*.xlsx";
+                openfile1.Filter = "Excel Files |*.xls;*xlsx;";
                 openfile1.Title = "Seleccione el archivo de Excel";
                 if (openfile1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-
                     if (openfile1.FileName.Equals("") == false)
                     {
-                        ruta = openfile1.FileName;
+                        string ruta = openfile1.FileName;
+                        string extension = Path.GetExtension(openfile1.FileName).ToLower();
+
+                        //Filtrar el formato de archivo de excel
+                        if (extension.Trim() == ".xls")
+                        {
+                            ConStr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + ruta + ";Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=2\"";
+                        }
+                        else if (extension.Trim() == ".xlsx")
+                        {
+                            ConStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + ruta + ";Extended Properties=\"Excel 12.0;HDR=Yes;IMEX=2\"";
+                        }
                         textBox1.Enabled = false;
                         textBox1.Text = ruta;
+                        //Se abre la conexion
+                        OleDbConnection conn = new OleDbConnection(ConStr);
+                        if (conn.State == ConnectionState.Closed)
+                        {
+                            conn.Open();
+                        }
+                        //Se selecciona el contenido de la primera tabla
+                        DataTable dtSheets = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                        string ExcelQuery = "SELECT * FROM ["+ dtSheets.Rows[0]["TABLE_NAME"].ToString() +"]";
 
-                        OleDbConnection conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;data source=" + ruta + ";Extended Properties='Excel 12.0 Xml;HDR=Yes'");
-                        OleDbDataAdapter MyDataAdapter = new OleDbDataAdapter("SELECT * FROM [" + "Hoja1" + "$]", conn);
-                        MyDataAdapter.Fill(dt);
+                        //Se llena el Datagrid
+                        OleDbCommand cmd = new OleDbCommand(ExcelQuery, conn);
+                        OleDbDataAdapter excelAdapter = new OleDbDataAdapter(cmd);
+                        excelAdapter.Fill(dt);
                         dgvData.DataSource = dt;
                         label4.Visible = true;
                     }
@@ -74,7 +95,7 @@ namespace ColisionSoft
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnInsertar_Click(object sender, EventArgs e)
         {
             gsInventario _gsi = new gsInventario();
 
@@ -82,13 +103,14 @@ namespace ColisionSoft
             {
                 for (int i = 0; i < dgvData.Rows.Count; i++)
                 {
-                    _gsi.nombre = dgvData.Rows[i].Cells[0].Value.ToString();
-                    _gsi.peso = float.Parse(dgvData.Rows[i].Cells[1].Value.ToString());
-                    _gsi.unidad_medida = dgvData.Rows[i].Cells[2].Value.ToString();
-                    _gsi.bodega = float.Parse(dgvData.Rows[i].Cells[3].Value.ToString());
-                    _gsi.exhibicion = float.Parse(dgvData.Rows[i].Cells[4].Value.ToString());
-                    _gsi.precio = float.Parse(dgvData.Rows[i].Cells[5].Value.ToString());
-                    _gsi.proveedor = Convert.ToInt32(dgvData.Rows[i].Cells[6].Value);
+                    _gsi.codigo = dgvData.Rows[i].Cells[0].Value.ToString();
+                    _gsi.marca = dgvData.Rows[i].Cells[0].Value.ToString();
+                    _gsi.tipo = dgvData.Rows[i].Cells[1].Value.ToString();
+                    _gsi.medida = dgvData.Rows[i].Cells[2].Value.ToString();
+                    _gsi.color = dgvData.Rows[i].Cells[3].Value.ToString();
+                    _gsi.descripcion = dgvData.Rows[i].Cells[4].Value.ToString();
+                    _gsi.cantidad = Convert.ToInt32(dgvData.Rows[i].Cells[6].Value);
+                    _gsi.precio_unitario = dgvData.Rows[i].Cells[6].Value.ToString();
 
                     int resGuardar = invMet.Agregar(_gsi);
                     result = DialogResult.OK;
@@ -100,7 +122,7 @@ namespace ColisionSoft
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
